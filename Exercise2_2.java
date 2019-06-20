@@ -64,6 +64,12 @@ class Exercise2_2{
      else System.out.println(N + " is NOT a palindrome number.");
      System.out.println();
      break;
+    case 7:
+     System.out.print("Enter a number:");
+     N = input.nextInt();
+     System.out.println();
+     nFactorial(N); 
+     System.out.println();
      default:
      System.out.println("Bye!!!.");
    }
@@ -144,6 +150,20 @@ class Exercise2_2{
   if(num == reserveNum) pal = true;
   else pal = false;
   return pal;
+ }
+
+ public static long nFactorial(int nFactor){ //Method to find N! e.g.: 4!=4X(4-1)(4-2)(4-3)=24
+  float result = 1;
+  
+  for(int i = 0; i < nFactor; i++){ //Using for loop, setup the condition need to less the nFactor
+  result *= (nFactor - i);//Using equalation to caluate the n!=nx(n-1)!
+  if(i < (nFactor - 1))//Display: AxBxC format if the condition < (nFactor - 1)
+  System.out.print((nFactor - i) + " x ");
+  else if(i == (nFactor - 1))//Dispaly: C=D format if the condition is (nFactor - 1) 
+  System.out.print("= ");
+  }
+  System.out.printf("%.2e%n", result); //Using printf() to limit the digit behind the decimal with e nation
+  return nFactor;
  }
 
 }
