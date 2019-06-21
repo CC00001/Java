@@ -7,7 +7,7 @@ class Exercise2_2{
  Scanner input = new Scanner(System.in);
 
  String numString;
- int choice, N;
+ int choice, N, b, e;
 
  do{
   System.out.println("Please Enter following number under the promot:");
@@ -18,6 +18,7 @@ class Exercise2_2{
   System.out.println("5: Sum of Even OR Odd Number."); 
   System.out.println("6: Palindrome.");
   System.out.println("7: N Factorial(n!).");
+  System.out.println("8: A number of the power(Extat credit)");
   System.out.println("0: Exit.");
   System.out.println();
   choice = input.nextInt();
@@ -27,6 +28,7 @@ class Exercise2_2{
    case 1:
      System.out.print("Enter a number for N Series Sum:");
      N = input.nextInt();
+     System.out.println();
      Nseries(N);
      System.out.println();
      break;
@@ -43,6 +45,7 @@ class Exercise2_2{
      System.out.println();
      primeNumber(numString);
      System.out.println();
+     break;
     case 4:
      System.out.print("Enter a number:");
      N = input.nextInt();
@@ -70,6 +73,15 @@ class Exercise2_2{
      System.out.println();
      nFactorial(N); 
      System.out.println();
+     break;
+    case 8:
+     System.out.print("Enter the base number:");
+     b = input.nextInt();
+     System.out.print("Enter the exponent number:");
+     e = input.nextInt();
+     powerNum(b, e);
+     System.out.println();
+     break;
      default:
      System.out.println("Bye!!!.");
    }
@@ -140,11 +152,11 @@ class Exercise2_2{
  }
 
  public static boolean palindrome(int num){ //Bool method to return true or false
-  int temp = num, reserveNum = 0, reminder = 0;
+  int temp = num, reserveNum = 0, remainder = 0;
   boolean pal;
   while(temp != 0){
-   reminder = temp % 10;
-   reserveNum = reserveNum * 10 + reminder;
+   remainder = temp % 10;
+   reserveNum = reserveNum * 10 + remainder;
    temp /= 10;
   }
   if(num == reserveNum) pal = true;
@@ -160,10 +172,20 @@ class Exercise2_2{
   if(i < (nFactor - 1))//Display: AxBxC format if the condition < (nFactor - 1)
   System.out.print((nFactor - i) + " x ");
   else if(i == (nFactor - 1))//Dispaly: C=D format if the condition is (nFactor - 1) 
-  System.out.print("= ");
+  System.out.print("1 = ");
   }
-  System.out.printf("%.2e%n", result); //Using printf() to limit the digit behind the decimal with e nation
+  System.out.printf("%.2f%n", result); //Using printf() to limit the digit behind the decimal with e nation
   return nFactor;
+ }
+
+ public static int powerNum(int base, int exponent){ //Using while loop to caluate result base on condition decresing
+ int result = 1, e = exponent;
+ while(e != 0){
+  result *= base;
+  e--;
+  }
+  System.out.println(base + " to the power " + exponent + " is " + result);
+  return result;
  }
 
 }
