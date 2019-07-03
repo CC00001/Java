@@ -3,12 +3,9 @@ import java.lang.Object;
 import java.util.Random;
 
 class Hangman{ // Function for generating random string
-<<<<<<< HEAD
  private static String str;
  private static StringBuilder h_str;
  private static char s;
-=======
->>>>>>> 8cb12a4c5c1e33b1e69be8a12720cc98308aca02
 
  public static String random_list(String s){
   String str1 = "This is random test.";
@@ -29,7 +26,6 @@ class Hangman{ // Function for generating random string
   return s;
  }
 
-<<<<<<< HEAD
  public static StringBuilder Hidden(String str){
   StringBuilder obj1 = new StringBuilder(str);
   for(int i = 0; i < obj1.length(); i++){
@@ -74,38 +70,6 @@ class Hangman{ // Function for generating random string
    else if(n_str.charAt(i) == h_str.charAt(j)) System.out.println("Well done! The phrase is: " + n_str);
   }
  }
-=======
- public static String Hidden(String str){
-  String h_str = "";
-  char [] c_str = {};
-  StringBuilder obj1 = new StringBuilder(str);
-  for(int i = 0; i < c_str.length; i++){
-   c_str[i] = obj1.charAt(i);
-   obj1.replace(0, obj1.length() -1, "*");
-   System.out.print(obj1);
-  }
-   //obj1.replace(c_str[i], c_str[i-1], "*");
-   //obj1.append();
-   return str;
-   }
-
-
- public static void main(String [] args){
-
-  String str = "";
-  String n_str = random_list(str);
-  //StringBuilder obj1 = new StringBuilder(n_str);
-  //obj1.append("This is a shit");
-  //System.out.println(obj1);
-  /*
-  for(int i = 0; i <= n_str.length; i++){
-  n_str = obj1.replace(i, i - 1, '*'); 
-  }
-  for(int i = 0; i < n_str.length(); i++)  {
-  obj1.replace(i, n_str[i-1], "*");
-  }*/
-  System.out.println(Hidden(n_str));
->>>>>>> 8cb12a4c5c1e33b1e69be8a12720cc98308aca02
 
  }
 }
