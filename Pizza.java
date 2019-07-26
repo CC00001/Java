@@ -19,6 +19,13 @@ class Pizza{
   ham_Num = h;
  } 
 
+ public Pizza(Pizza o){
+  size = o.size;
+  cheese_Num = o.cheese_Num;
+  pepperoni_Num = o.pepperoni_Num;
+  ham_Num = o.ham_Num;
+ }
+
  //Set Methods
  public void set_Size(char s){
   size = s;
@@ -81,7 +88,7 @@ class Pizza{
  }
 
  public String toString(){
-  return ("Size of Pizza + " + get_Size() + ", the Topping quantity of the chesse is:" + get_Cheese() + ", Peppernoi is: " + get_Peppernoi() + ", Ham is:" + get_Ham() + ", number of Toppings:" + get_Topping() + ", The total of the pizza is:" + calcCost(get_Size(), get_Topping())); //Calling the static method calcCost()
+  return ("Size of Pizza: " + get_Size() + ", the Topping quantity of the chesse is:" + get_Cheese() + ", Peppernoi is: " + get_Peppernoi() + ", Ham is:" + get_Ham() + ", number of Toppings:" + get_Topping() + ", The total of the pizza is:" + calcCost(get_Size(), get_Topping())); //Calling the static method calcCost()
  }
  
 
