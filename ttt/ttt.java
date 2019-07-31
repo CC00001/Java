@@ -2,12 +2,16 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.GridLayout;
+import javax.swing.JTextField;
 
 class ttt extends JFrame{
 
  private tttModel _tttLogic = new tttModel();
- private tttDisplay _tttBoard = new tttDisplay(_tttLogic);
-
+ //private tttDisplay _tttBoard = new tttDisplay(_tttLogic);
+ private tttModel player = new tttModel();
+ 
+ public JTextField player1Btn = new JTextField();
+ public JTextField player2Btn = new JTextField();
 
  public ttt(){ //Constructor
   JPanel content = new JPanel();
@@ -19,7 +23,8 @@ class ttt extends JFrame{
   JButton six = new JButton("");
   JButton seven = new JButton("");
   JButton eight = new JButton("");
-  JButton nine = new JButton("");
+  JButton nine = new JButton(""); 
+
   content.setLayout(new GridLayout(3, 3));
   content.add(one);
   content.add(two);
@@ -41,7 +46,6 @@ class ttt extends JFrame{
   //seven.addActionListener(new sevenListener());
   //eight.addActionListener(new eightListener());
   //nine.addActionListener(new nineListener());
- 
   setContentPane(content);
   setTitle("Tac-Tic-Toe");
   setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -50,9 +54,23 @@ class ttt extends JFrame{
  //Implement Listensers
  class oneListener implements ActionListener{
   public void actionPerformed(ActionEvent e){
-   e.setText("O"); 
+   if(isPlayer())
+   player1Btn.setText("O"); 
+   else if(!isPlayer())
+   player2Btn.setText("X");
   }
  }
+
+  public boolean isPlayer(){
+   boolean flag = false;
+   if(player.getPlayer1() % 2 != 0)
+   flag = true;
+   else if(player1.getPlayer1() % 2 == 0)
+   
+   else if(player.getPlayer2() % 2 == 0)
+   flag = false;
+   return flag;
+  }
 
  public static void main(String [] args){
    new ttt().setVisible(true);   
