@@ -2,28 +2,31 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.GridLayout;
+import java.awt.Dimension;
 import javax.swing.JTextField;
 
 class ttt extends JFrame{
 
  private tttModel _tttLogic = new tttModel();
- //private tttDisplay _tttBoard = new tttDisplay(_tttLogic);
- private tttModel player = new tttModel();
  
- public JTextField player1Btn = new JTextField();
- public JTextField player2Btn = new JTextField();
+ private static tttModel currentPlayer; 
+ private tttModel player1, player2;
+ private JButton one, two, three, four, five, six, seven, eight, nine;
+
+ //public JTextField player1Btn = new JTextField("O");
+ //public JTextField player2Btn = new JTextField("X");
 
  public ttt(){ //Constructor
   JPanel content = new JPanel();
-  JButton one = new JButton("");
-  JButton two = new JButton("");
-  JButton three = new JButton("");
-  JButton four = new JButton("");
-  JButton five = new JButton("");
-  JButton six = new JButton("");
-  JButton seven = new JButton("");
-  JButton eight = new JButton("");
-  JButton nine = new JButton(""); 
+  one = new JButton("");
+  two = new JButton("");
+  three = new JButton("");
+  four = new JButton("");
+  five = new JButton("");
+  six = new JButton("");
+  seven = new JButton("");
+  eight = new JButton("");
+  nine = new JButton(""); 
 
   content.setLayout(new GridLayout(3, 3));
   content.add(one);
@@ -36,45 +39,141 @@ class ttt extends JFrame{
   content.add(eight);
   content.add(nine);
 
+
   //Add Listener
   one.addActionListener(new oneListener());
-  //two.addActionListener(new twoListener());
-  //three.addActionListener(new threeListener());
-  //four.addActionListener(new fourListener());
-  //five.addActionListener(new fiveListener());
-  //six.addActionListener(new sixListener());
-  //seven.addActionListener(new sevenListener());
-  //eight.addActionListener(new eightListener());
-  //nine.addActionListener(new nineListener());
+  two.addActionListener(new twoListener());
+  three.addActionListener(new threeListener());
+  four.addActionListener(new fourListener());
+  five.addActionListener(new fiveListener());
+  six.addActionListener(new sixListener());
+  seven.addActionListener(new sevenListener());
+  eight.addActionListener(new eightListener());
+  nine.addActionListener(new nineListener());
+  setSize(400, 400);
   setContentPane(content);
-  setTitle("Tac-Tic-Toe");
+  setTitle("Tic-Tac-Toe");
   setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
  
  }
  //Implement Listensers
  class oneListener implements ActionListener{
   public void actionPerformed(ActionEvent e){
-   if(isPlayer())
-   player1Btn.setText("O"); 
-   else if(!isPlayer())
-   player2Btn.setText("X");
+   takeTurns(player1, player2);
+   if(currentPlayer == player1)
+   one.setText("O");
+   else if(currentPlayer == player2)
+   one.setText("X");
   }
  }
 
-  public boolean isPlayer(){
-   boolean flag = false;
-   if(player.getPlayer1() % 2 != 0)
-   flag = true;
-   else if(player1.getPlayer1() % 2 == 0)
-   
-   else if(player.getPlayer2() % 2 == 0)
-   flag = false;
-   return flag;
+  class twoListener implements ActionListener{
+  public void actionPerformed(ActionEvent e){
+   takeTurns(player1, player2);
+   if(currentPlayer == player1)
+   two.setText("O");
+   else if(currentPlayer == player2)
+   two.setText("X");
   }
+ }
+
+class threeListener implements ActionListener{
+  public void actionPerformed(ActionEvent e){
+   takeTurns(player1, player2);
+   if(currentPlayer == player1)
+   three.setText("O");
+   else if(currentPlayer == player2)
+   three.setText("X");
+  }
+ }
+
+class fourListener implements ActionListener{
+  public void actionPerformed(ActionEvent e){
+   takeTurns(player1, player2);
+   if(currentPlayer == player1)
+   four.setText("O");
+   else if(currentPlayer == player2)
+   four.setText("X");
+  }
+ }
+
+class fiveListener implements ActionListener{
+  public void actionPerformed(ActionEvent e){
+   takeTurns(player1, player2);
+   if(currentPlayer == player1)
+   five.setText("O");
+   else if(currentPlayer == player2)
+   five.setText("X");
+  }
+ }
+
+class sixListener implements ActionListener{
+  public void actionPerformed(ActionEvent e){
+   takeTurns(player1, player2);
+   if(currentPlayer == player1)
+   six.setText("O");
+   else if(currentPlayer == player2)
+   six.setText("X");
+  }
+ }
+
+class sevenListener implements ActionListener{
+  public void actionPerformed(ActionEvent e){
+   takeTurns(player1, player2);
+   if(currentPlayer == player1)
+   seven.setText("O");
+   else if(currentPlayer == player2)
+   seven.setText("X");
+  }
+ }
+
+class eightListener implements ActionListener{
+  public void actionPerformed(ActionEvent e){
+   takeTurns(player1, player2);
+   if(currentPlayer == player1)
+   eight.setText("O");
+   else if(currentPlayer == player2)
+   eight.setText("X");
+  }
+ }
+
+class nineListener implements ActionListener{
+  public void actionPerformed(ActionEvent e){
+   takeTurns(player1, player2);
+   if(currentPlayer == player1)
+   nine.setText("O");
+   else if(currentPlayer == player2)
+   nine.setText("X");
+  }
+ }
+
+
+/*public tttModel isPlayer1Turn(){
+    if(player1.getTurns())
+     player1 = new tttModel(0);
+    else if(!player1.getTurns())
+     player1 = new tttModel(1);
+    return player1;
+   }
+
+   public tttModel isPlayer2Turn(){
+    if(player2.getTurns())
+     player2 = new tttModel(0);
+    else if(player2.getTurns())
+     player2 = new tttModel(1);
+    return player2;
+   }
+  */
+   public tttModel takeTurns(tttModel p1, tttModel p2){
+     if(tttModel.getTurns())
+      currentPlayer = p1;
+     else if(!tttModel.getTurns())
+      currentPlayer = p2;
+    return currentPlayer;
+   }
 
  public static void main(String [] args){
    new ttt().setVisible(true);   
- 
  }
 }
 
